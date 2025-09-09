@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Web Matcha Design System - Brutalism Doux */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Brutalism Doux Palette */
+    --background: 35 25% 97%;
+    --foreground: 280 8% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 280 8% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 280 8% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Coral/Rose */
+    --primary: 15 75% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 15 60% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Deep Purple */
+    --secondary: 265 25% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-muted: 265 15% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Warm Cream */
+    --accent: 45 35% 90%;
+    --accent-foreground: 280 8% 12%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 35 15% 92%;
+    --muted-foreground: 280 6% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 15% 85%;
+    --input: 35 15% 88%;
+    --ring: 15 75% 65%;
 
-    --radius: 0.5rem;
+    /* Brutalism Doux Radii */
+    --radius: 1.5rem;
+    --radius-sm: 1rem;
+    --radius-lg: 2rem;
+    --radius-xl: 2.5rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(15 80% 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(265 30% 35%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(35 45% 95%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-brutal: 8px 8px 0px hsl(var(--secondary) / 0.8);
+    --shadow-card: 0 8px 32px -8px hsl(var(--foreground) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +79,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode - Brutalism Doux */
+    --background: 280 12% 8%;
+    --foreground: 35 25% 97%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 280 10% 12%;
+    --card-foreground: 35 25% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 280 10% 12%;
+    --popover-foreground: 35 25% 97%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 15 75% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 15 60% 25%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 265 35% 75%;
+    --secondary-foreground: 280 12% 8%;
+    --secondary-muted: 265 25% 15%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 25% 15%;
+    --accent-foreground: 35 25% 97%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 280 8% 15%;
+    --muted-foreground: 280 6% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 280 8% 18%;
+    --input: 280 8% 18%;
+    --ring: 15 75% 65%;
+
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-brutal: 8px 8px 0px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
   }
 }
 
@@ -100,6 +122,85 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', 'Bricolage Grotesque', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  /* Brutalism Doux Utilities */
+  .brutal-shadow {
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .soft-shadow {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Asymmetric Grid Helpers */
+  .grid-asymmetric {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 1.5rem;
+  }
+
+  .grid-asymmetric-mobile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+  }
+
+  /* Interactive Elements */
+  .interactive-card {
+    @apply transition-smooth cursor-pointer;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .brutal-button {
+    @apply font-bold px-6 py-3 rounded-2xl transition-bounce;
+    box-shadow: 4px 4px 0px hsl(var(--secondary));
+  }
+
+  .brutal-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px hsl(var(--secondary));
+  }
+
+  .brutal-button:active {
+    transform: translate(0px, 0px);
+    box-shadow: 2px 2px 0px hsl(var(--secondary));
   }
 }
